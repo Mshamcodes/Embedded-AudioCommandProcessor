@@ -1,0 +1,22 @@
+# Makefile
+# Makefile for Audio Command Processor
+# This Makefile compiles the audio command processor application.
+
+
+CC = gcc
+CFLAGS = -Wall -Iinc
+
+SRC = src/main.c src/logger.c
+OUT = audio_command_processor
+
+all: $(OUT)
+
+$(OUT): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OUT)
+
+run: $(OUT)
+	./$(OUT) commands.txt
+
+clean:
+	rm -f $(OUT)
+
