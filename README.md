@@ -8,8 +8,8 @@
 - Stubbed processor that recognizes input and prints dummy routing
 
 ## 📁 Structure
-- `main.c` - Main loop to read commands
-- `logger.c/.h` - Lightweight logging system
+- `aud_main.c` - Main loop to read commands
+- `audio_logger.c/.h` - Lightweight logging system
 - `commands.txt` - Input simulation file
 - `Makefile` - Build automation
 
@@ -17,7 +17,8 @@
 ```bash
 -> make -f MakeFile
 -> ./audio_command_processor commands.txt
-
+``` 
+--------------------------------------------------------------------------------------------------------
 
 ## 🔧 Features (Phase 2)
 
@@ -30,6 +31,13 @@
   - `volume down`
   - `reset`
   - fallback for invalid commands
+
+## 📁 Structure
+- `aud_main.c` - Main loop to read commands
+- `audio_logger.c/.h` - Lightweight logging system
+- `audio_command_processor.c/.h` - Logic for audio command dispatcher and audio routing handler with handler architecture
+- `commands.txt` - Input simulation file
+- `Makefile` - Build automation
 
 ---
 
