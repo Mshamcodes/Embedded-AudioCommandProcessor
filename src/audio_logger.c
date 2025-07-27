@@ -1,17 +1,20 @@
 /**
-     * @brief Logs a message at the specified log level.
-     *
-     * This function formats the log message and prints it to the standard output.
-     *
-     * @param level The log level (INFO, WARNING, ERROR, INPUT).
-     * @param format The format string for the log message.
-     * @param ... Additional arguments for the format string.
+ * @brief Logs a message at the specified log level.
+ *
+ * This function formats the log message and prints it to the standard output.
+ *
+ * @param level The log level (INFO, WARNING, ERROR, INPUT).
+ * @param format The format string for the log message.
+ * @param ... Additional arguments for the format string.
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include "audio_logger.h"
 
+/**
+ * @brief Logs a message at the specified log level.
+ */
 void log_message(log_level_t level, const char *format, ...) 
 {
     const char *level_str;

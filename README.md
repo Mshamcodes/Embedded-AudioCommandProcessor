@@ -39,5 +39,21 @@
 - `commands.txt` - Input simulation file
 - `Makefile` - Build automation
 
+
+## WorkFlow of PROJECT 
+
+-> 
+    main() 
+    └── register_audio_commands()
+            └── register_command("play", handle_play_command)
+            └── register_command("stop", handle_stop_command)
+            └── ...
+    └── Open and read "commands.txt"
+    └── For each command:
+            └── dispatch_command("play file.mp3")
+                └── Find "play" in linked list
+                └── Call handle_play_command("file.mp3")
+    └── Cleanup and exit
+-> 
 ---
 

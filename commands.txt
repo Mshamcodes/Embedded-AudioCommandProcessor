@@ -1,6 +1,6 @@
 play  audio.wav
 stop
-volume up
-volume down 
-invalid_command
+volumeUp
+volumeDown 
+invalid
 reset

@@ -1,9 +1,9 @@
 /** 
-    * @file main.c
-    * @brief Main functionality for the audio command processor.
-    *
-    * This file provides the main entry point for the audio command processor,
-    * handling command input and processing.
+* @file main.c
+* @brief Main functionality for the audio command processor.
+*
+* This file provides the main entry point for the audio command processor,
+* handling command input and processing.
  */
 
 #include <stdio.h>
@@ -12,8 +12,27 @@
 #include "audio_logger.h"
 #include "audio_command_processor.h"
 
-#define MAX_LINE_LENGTH 100
+#define MAX_LINE_LENGTH 100                           // Maximum length of a command line
 
+/**
+ * @brief Registers all audio commands.
+ *
+ * This function is called at startup to register all available audio commands
+ * with the command processor.
+ */
+extern void register_audio_commands(void);
+
+
+/**
+ * @brief Main function for the audio command processor.
+ *
+ * This function initializes the command processor, reads commands from a file,
+ * and dispatches them to the appropriate handlers.
+ *
+ * @param argc The number of command line arguments.
+ * @param argv The array of command line arguments.
+ * @return int Exit status of the program.
+ */
 int main(int argc, char *argv[]) 
 {
     LOG_INFO("Command Processor Initialized.", __func__);
@@ -23,6 +42,8 @@ int main(int argc, char *argv[])
         LOG_ERROR("Usage: %s <commands.txt>", argv[0]);
         return 1;
     }
+
+    register_audio_commands();  // Register all commands dynamically
 
     FILE *file = fopen(argv[1], "r");
     if (!file) 
@@ -47,5 +68,7 @@ int main(int argc, char *argv[])
     }
 
     fclose(file);
+    free_command_processor();  // clean up
+
     return 0;
 }
