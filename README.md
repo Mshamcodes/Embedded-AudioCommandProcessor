@@ -42,7 +42,7 @@
 
 ## WorkFlow of PROJECT 
 
--> 
+
     main() 
     └── register_audio_commands()
             └── register_command("play", handle_play_command)
@@ -54,6 +54,6 @@
                 └── Find "play" in linked list
                 └── Call handle_play_command("file.mp3")
     └── Cleanup and exit
--> 
+
 ---
 
