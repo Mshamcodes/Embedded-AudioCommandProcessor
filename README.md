@@ -72,7 +72,6 @@ invalid
 
 ## WorkFlow of PROJECT 
 
--> 
     main()
     │
     ├── register_audio_commands()
@@ -102,6 +101,6 @@ invalid
     └── Cleanup:
         ├── Free all command list nodes
         └── Exit
--> 
+
 ---
 
