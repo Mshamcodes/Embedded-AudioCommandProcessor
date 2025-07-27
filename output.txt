@@ -1,0 +1,38 @@
+Output for current PHASE 1 -3 implementation
+
+[INFO] Command Processor Initialized.
+[INFO] Registered command: play
+[INFO] Registered command: stop
+[INFO] Registered command: volumeUp
+[INFO] Registered command: volumeDown
+[INFO] Registered command: reset
+[INFO] Registered command: mute
+[INFO] Registered command: unmute
+[INFO] Registered command: invalid
+[INFO] Reading commands from file: commands.txt
+[INPUT] Received: "play  audio.wav"
+[INFO] Playing audio:  audio.wav
+[INFO] Handling play command:  audio.wav
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
+[INPUT] Received: "stop"
+[INFO] Handling stop command: 
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command: 
+[INFO] System Status: Volume: 60 | Playing: No | Muted: No
+[INPUT] Received: "volumeDown"
+[INFO] Handling volume down command: 
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+[INPUT] Received: "mute"
+[INFO] Handling mute command:
+[INFO] System Status: Volume: 50 | Playing: No | Muted: Yes
+[INPUT] Received: "unmute "
+[INFO] Handling unmute command:
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+[INPUT] Received: "reset"
+[INFO] System reset: volume = 50 | playing = 0 | muted = 0
+[INFO] Handling reset command:
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+[INPUT] Received: "invalid"
+[ERROR] Invalid command received:
+[INFO] Command processor freed

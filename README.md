@@ -39,21 +39,69 @@
 - `commands.txt` - Input simulation file
 - `Makefile` - Build automation
 
+--------------------------------------------------------------------------------------------------------
+
+## ✅ Phase 3: Audio System State with Bitfields
+
+### 🔹 New Modules:
+- `audio_systemState.c/.h`:
+  - Bitfield-based state: `is_playing`, `is_muted`
+  - Tracks system volume (0–100)
+  - Functions: `reset_audio_system`, `print_audio_status`, `get_audio_system`
+
+- **New Commands Added**:
+  - `mute` – sets `is_muted` flag
+  - `unmute` – clears `is_muted` flag
+  - `reset` – resets volume and flags
+
+---
+
+## 🧪 Sample Input: `commands.txt`
+```txt
+play audio.wav
+stop
+volumeUp
+volumeDown
+mute
+unmute
+reset
+invalid
+```
+
+---------------------------------------------------------------------------------------------------------
 
 ## WorkFlow of PROJECT 
 
 -> 
-    main() 
-    └── register_audio_commands()
-            └── register_command("play", handle_play_command)
-            └── register_command("stop", handle_stop_command)
-            └── ...
-    └── Open and read "commands.txt"
-    └── For each command:
-            └── dispatch_command("play file.mp3")
-                └── Find "play" in linked list
-                └── Call handle_play_command("file.mp3")
-    └── Cleanup and exit
+    main()
+    │
+    ├── register_audio_commands()
+    │   ├── register_command("play",        handle_play_command)
+    │   ├── register_command("stop",        handle_stop_command)
+    │   ├── register_command("volumeUp",    handle_volumeUp_command)
+    │   ├── register_command("volumeDown",  handle_volumeDown_command)
+    │   ├── register_command("reset",       handle_reset_command)
+    │   ├── register_command("mute",        handle_mute_command)
+    │   ├── register_command("unmute",      handle_unmute_command)
+    │   └── register_command("invalid",     handle_invalid_command)
+    │
+    ├── Open and read "commands.txt"
+    │
+    ├── For each line in file:
+    │   ├── parse into audioCommand (name + arg)
+    │   ├── dispatch_command(cmd)
+    │   │   └── Search for matching name in command registry
+    │   │   └── If found:
+    │   │        └── Call corresponding handler with argument
+    │   │             e.g., handle_play_command("file.mp3")
+    │   │             ├── Updates audio system state
+    │   │             └── Calls print_audio_status()
+    │   │   └── Else:
+    │   │        └── Call handle_invalid_command()
+    │
+    └── Cleanup:
+        ├── Free all command list nodes
+        └── Exit
 -> 
 ---
 

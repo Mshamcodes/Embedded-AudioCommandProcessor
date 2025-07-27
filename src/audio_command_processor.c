@@ -4,12 +4,12 @@
  * @param command The command to dispatch.
  */
 
-#include "audio_command_processor.h"
-#include "audio_logger.h"
-#include "audio_command_registery.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "audio_command_processor.h"
+#include "audio_logger.h"
+#include "audio_command_registery.h"
 
 
 static aud_command_node_t *aud_command_table = NULL;                  // Pointer to the head of the command linked list

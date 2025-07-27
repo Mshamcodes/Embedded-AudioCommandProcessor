@@ -6,7 +6,7 @@
 CC = gcc
 CFLAGS = -Wall -Iinc
 
-SRC = src/aud_main.c src/audio_logger.c src/audio_command_processor.c src/audio_command_registery.c
+SRC = src/aud_main.c src/audio_logger.c src/audio_command_processor.c src/audio_command_registery.c src/audio_systemState.c
 OUT = audio_command_processor
 
 all: $(OUT)

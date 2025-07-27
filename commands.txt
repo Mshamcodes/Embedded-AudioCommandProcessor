@@ -1,6 +1,12 @@
 play  audio.wav
 stop
 volumeUp
-volumeDown 
-invalid
+volumeDown
+mute
+unmute 
 reset
+invalid
+
+
+
+
