@@ -12,6 +12,9 @@
 #include "audio_logger.h"
 #include "audio_command_registery.h"
 #include "audio_systemState.h"
+#include "audio_buffer.h"
+
+audio_buffer_t audio_buffer;  // Global audio buffer instance
 
 // ================================================
 // Audio command handlers
@@ -24,7 +27,28 @@ static void handle_play_command(const char *command)
     {
         state->flags.is_playing = 1;                   // Set playing flag
         LOG_INFO("Playing audio: %s", command);
-    }    
+
+        // Simulate enqueueing 5 chunks
+        for (int i = 1; i <= 5; i++) {
+            char dummy_chunk[AUDIO_BUFFER_SIZE];
+            snprintf(dummy_chunk, AUDIO_BUFFER_SIZE, "AUDIO_CHUNK_%d", i);
+            enqueue_audio_command(&audio_buffer, dummy_chunk);
+        }
+
+        // Show buffer state after enqueue
+        print_audio_buffer_state(&audio_buffer);
+
+        // Simulate dequeuing 2 chunks (playback)
+        for (int i = 0; i < 2; i++) {
+            char out_chunk[AUDIO_BUFFER_SIZE];
+            if (dequeue_audio_command(&audio_buffer, out_chunk)) {
+                printf("[AUDIO] Playing chunk: %s\n", out_chunk);
+            }
+        }
+
+        // Show buffer state after dequeue
+        print_audio_buffer_state(&audio_buffer);
+    }
     LOG_INFO("Handling play command: %s", command);
     print_audio_state();
 }
@@ -34,6 +58,10 @@ static void handle_stop_command(const char *command)
 {
     audioState *state = get_audio_state();
     state->flags.is_playing = 0;                        // Clear playing flag
+
+    // Reset the audio buffer
+    reset_audio_buffer(&audio_buffer);
+
     LOG_INFO("Handling stop command: %s", command);
     print_audio_state();
 }
