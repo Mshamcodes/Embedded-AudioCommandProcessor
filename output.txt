@@ -36,3 +36,86 @@ Output for current PHASE 1 -3 implementation
 [INPUT] Received: "invalid"
 [ERROR] Invalid command received:
 [INFO] Command processor freed
+
+
+
+Output for PHASE 4 step 1 implementation 
+(Making it user friendly with real time CLI)
+
+[INFO] Command Processor Initialized.
+[INFO] Registered command: play
+[INFO] Registered command: stop
+[INFO] Registered command: volumeUp
+[INFO] Registered command: volumeDown
+[INFO] Registered command: reset
+[INFO] Registered command: mute
+[INFO] Registered command: unmute
+[INFO] Registered command: invalid
+Enter command: play
+[INPUT] Received: "play"
+[INFO] Playing audio:
+[INFO] Handling play command:
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
+Enter command: stop
+[INPUT] Received: "stop"
+[INFO] Handling stop command:
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+Enter command: play
+[INPUT] Received: "play"
+[INFO] Playing audio:
+[INFO] Handling play command:
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
+Enter command: dwerfgh
+[INPUT] Received: "dwerfgh"
+[WARNING] Unknown command received: "dwerfgh"
+Enter command: 3r4tr6hyuikj
+[INPUT] Received: "3r4tr6hyuikj"
+[WARNING] Unknown command received: "3r4tr6hyuikj"
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 60 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 70 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 80 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 90 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
+Enter command: volumeUp
+[INPUT] Received: "volumeUp"
+[INFO] Handling volume up command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
+Enter command: unmute
+[INPUT] Received: "unmute"
+[INFO] Handling unmute command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
+Enter command: mute
+[INPUT] Received: "mute"
+[INFO] Handling mute command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: Yes
+Enter command: play
+[INPUT] Received: "play"
+[INFO] Handling play command:
+[INFO] System Status: Volume: 100 | Playing: Yes | Muted: Yes
+Enter command: stop
+[INPUT] Received: "stop"
+[INFO] Handling stop command:
+[INFO] System Status: Volume: 100 | Playing: No | Muted: Yes
+Enter command: play
+[INPUT] Received: "play"
+[INFO] Handling play command:
+[INFO] System Status: Volume: 100 | Playing: No | Muted: Yes
