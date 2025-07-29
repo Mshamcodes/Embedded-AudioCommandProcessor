@@ -1,8 +1,8 @@
 /** 
-     * @file audio_command_regsistry.c
-     * @brief Audio Command Registry Implementation
-     * This file implements the command registration and processing functionality for the audio command processor.
-     * It includes functions to register commands, dispatch them, and manage the command linked list.
+ * @file audio_command_regsistry.c
+ * @brief Audio Command Registry Implementation
+ * This file implements the command registration and processing functionality for the audio command processor.
+ * It includes functions to register commands, dispatch them, and manage the command linked list.
  */
 
 #include <stdio.h>

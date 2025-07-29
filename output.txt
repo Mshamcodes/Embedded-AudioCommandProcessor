@@ -1,121 +1,76 @@
-Output for current PHASE 1 -3 implementation
-
+sham_@MshamGIdev:/mnt/c/Users/Mahadev GI/PROJECTS/Embedded-AudioCommandProcessor$ ./audio_command_processor
 [INFO] Command Processor Initialized.
-[INFO] Registered command: play
-[INFO] Registered command: stop
-[INFO] Registered command: volumeUp
-[INFO] Registered command: volumeDown
-[INFO] Registered command: reset
-[INFO] Registered command: mute
-[INFO] Registered command: unmute
-[INFO] Registered command: invalid
-[INFO] Reading commands from file: commands.txt
-[INPUT] Received: "play  audio.wav"
-[INFO] Playing audio:  audio.wav
-[INFO] Handling play command:  audio.wav
-[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
-[INPUT] Received: "stop"
-[INFO] Handling stop command: 
-[INFO] System Status: Volume: 50 | Playing: No | Muted: No
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command: 
-[INFO] System Status: Volume: 60 | Playing: No | Muted: No
-[INPUT] Received: "volumeDown"
-[INFO] Handling volume down command: 
-[INFO] System Status: Volume: 50 | Playing: No | Muted: No
-[INPUT] Received: "mute"
-[INFO] Handling mute command:
-[INFO] System Status: Volume: 50 | Playing: No | Muted: Yes
-[INPUT] Received: "unmute "
-[INFO] Handling unmute command:
-[INFO] System Status: Volume: 50 | Playing: No | Muted: No
-[INPUT] Received: "reset"
-[INFO] System reset: volume = 50 | playing = 0 | muted = 0
-[INFO] Handling reset command:
-[INFO] System Status: Volume: 50 | Playing: No | Muted: No
-[INPUT] Received: "invalid"
-[ERROR] Invalid command received:
-[INFO] Command processor freed
+Enter command: help
+[INPUT] Received: "help"
 
+Available Commands:
+ - play       : Start playing audio
+ - pause      : Pause audio playback and clear buffer
+ - volumeUp   : Increase volume by 10 units (max 100)
+ - volumeDown : Decrease volume by 10 units (min 0)
+ - mute       : Mute the audio
+ - unmute     : Unmute the audio
+ - reset      : Reset system state and buffer
+ - help       : Show the list of commands supported
 
-
-Output for PHASE 4 step 1 implementation 
-(Making it user friendly with real time CLI)
-
-[INFO] Command Processor Initialized.
-[INFO] Registered command: play
-[INFO] Registered command: stop
-[INFO] Registered command: volumeUp
-[INFO] Registered command: volumeDown
-[INFO] Registered command: reset
-[INFO] Registered command: mute
-[INFO] Registered command: unmute
-[INFO] Registered command: invalid
+[INFO] Displayed help information.
 Enter command: play
 [INPUT] Received: "play"
 [INFO] Playing audio:
+[INFO] Audio Buffer - Chunks: 5 / 10 | Front: 0 | Rear: 5
+Buffer View: [F🟩][🟩][🟩][🟩][🟩][R🟩][⬜][⬜][⬜][⬜]
+
+[AUDIO] Playing chunk: AUDIO_CHUNK_1
+[AUDIO] Playing chunk: AUDIO_CHUNK_2
+[INFO] Audio Buffer - Chunks: 3 / 10 | Front: 2 | Rear: 5
+Buffer View: [⬜][⬜][F🟩][🟩][🟩][R🟩][⬜][⬜][⬜][⬜]
+
 [INFO] Handling play command:
 [INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
-Enter command: stop
-[INPUT] Received: "stop"
-[INFO] Handling stop command:
+Enter command: pause
+[INPUT] Received: "pause"
+Audio buffer has been reset.
+[INFO] Audio Buffer - Chunks: 0 / 10 | Front: 0 | Rear: 0
+Buffer View: [⬜][⬜][⬜][⬜][⬜][⬜][⬜][⬜][⬜][⬜]
+
+[INFO] Handling pause command:
 [INFO] System Status: Volume: 50 | Playing: No | Muted: No
 Enter command: play
 [INPUT] Received: "play"
 [INFO] Playing audio:
+[INFO] Audio Buffer - Chunks: 5 / 10 | Front: 0 | Rear: 5
+Buffer View: [F🟩][🟩][🟩][🟩][🟩][R🟩][⬜][⬜][⬜][⬜]
+
+[AUDIO] Playing chunk: AUDIO_CHUNK_1
+[AUDIO] Playing chunk: AUDIO_CHUNK_2
+[INFO] Audio Buffer - Chunks: 3 / 10 | Front: 2 | Rear: 5
+Buffer View: [⬜][⬜][F🟩][🟩][🟩][R🟩][⬜][⬜][⬜][⬜]
+
 [INFO] Handling play command:
 [INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
-Enter command: dwerfgh
-[INPUT] Received: "dwerfgh"
-[WARNING] Unknown command received: "dwerfgh"
-Enter command: 3r4tr6hyuikj
-[INPUT] Received: "3r4tr6hyuikj"
-[WARNING] Unknown command received: "3r4tr6hyuikj"
 Enter command: volumeUp
 [INPUT] Received: "volumeUp"
 [INFO] Handling volume up command:
 [INFO] System Status: Volume: 60 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 70 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 80 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 90 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
-Enter command: volumeUp
-[INPUT] Received: "volumeUp"
-[INFO] Handling volume up command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
-Enter command: unmute
-[INPUT] Received: "unmute"
-[INFO] Handling unmute command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: No
+Enter command: volumeDown
+[INPUT] Received: "volumeDown"
+[INFO] Handling volume down command:
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
 Enter command: mute
 [INPUT] Received: "mute"
 [INFO] Handling mute command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: Yes
-Enter command: play
-[INPUT] Received: "play"
-[INFO] Handling play command:
-[INFO] System Status: Volume: 100 | Playing: Yes | Muted: Yes
-Enter command: stop
-[INPUT] Received: "stop"
-[INFO] Handling stop command:
-[INFO] System Status: Volume: 100 | Playing: No | Muted: Yes
-Enter command: play
-[INPUT] Received: "play"
-[INFO] Handling play command:
-[INFO] System Status: Volume: 100 | Playing: No | Muted: Yes
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: Yes
+Enter command: unmute
+[INPUT] Received: "unmute"
+[INFO] Handling unmute command:
+[INFO] System Status: Volume: 50 | Playing: Yes | Muted: No
+Enter command: reset
+[INPUT] Received: "reset"
+[INFO] System reset: volume = 50 | playing = 0 | muted = 0
+[INFO] Handling reset command:
+[INFO] System Status: Volume: 50 | Playing: No | Muted: No
+Enter command: exit
+[INFO] Exiting interactive mode.
+[INFO] Command processor freed
+msham_@MshamGIdev:/mnt/c/Users/Mahadev GI/PROJECTS/Embedded-AudioCommandProcessor$ ^C
+msham_@MshamGIdev:/mnt/c/Users/Mahadev GI/PROJECTS/Embedded-AudioCommandProcessor$ 
