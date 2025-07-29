@@ -41,8 +41,6 @@ void register_command(const char *command_name, command_handler_t handler)
     new_aud_command->handler = handler;                          // Set the command handler
     new_aud_command->next = aud_command_table;                   // Insert at the head of the list
     aud_command_table = new_aud_command;                         // Update the head of the list
-
-    LOG_INFO("Registered command: %s", command_name);
 }
 
 

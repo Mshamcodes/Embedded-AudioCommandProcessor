@@ -41,7 +41,6 @@ bool enqueue_audio_command(audio_buffer_t *buffer, const char *command)
     strncpy(buffer->audio_buffer_chunks[buffer->buffer_tail], command, AUDIO_BUFFER_SIZE - 1);
     buffer->buffer_tail = (buffer->buffer_tail + 1) % AUDIO_BUFFER_CAPACITY; // Move tail to next position
     buffer->buffer_count++; // Increment the count of commands in the buffer
-    printf("Enqueued command: %s\n", command);
 
     return true;
 }
@@ -68,7 +67,6 @@ bool dequeue_audio_command(audio_buffer_t *buffer, char *command)
     command[AUDIO_BUFFER_SIZE - 1] = '\0'; // Ensure null termination
     buffer->buffer_head = (buffer->buffer_head + 1) % AUDIO_BUFFER_CAPACITY; // Move head to next position
     buffer->buffer_count--; // Decrement the count of commands in the buffer
-    printf("Dequeued command: %s\n", command);
 
     return true;
 }
@@ -127,8 +125,33 @@ void print_audio_buffer_state(const audio_buffer_t *buffer)
     printf("[INFO] Audio Buffer - Chunks: %d / %d | Front: %d | Rear: %d\n",
            buffer->buffer_count, AUDIO_BUFFER_CAPACITY, buffer->buffer_head, buffer->buffer_tail);
 
-    for (int i = 0; i < AUDIO_BUFFER_CAPACITY; i++)
+    printf("Buffer View: ");
+    for (int i = 0; i < AUDIO_BUFFER_CAPACITY; i++) 
     {
-        printf("[%d]: %s\n", i, buffer->audio_buffer_chunks[i]);
+        bool isFilled = ((buffer->buffer_head <= buffer->buffer_tail && i >= buffer->buffer_head && i < buffer->buffer_tail) ||
+                         (buffer->buffer_head > buffer->buffer_tail && (i >= buffer->buffer_head || i < buffer->buffer_tail)));
+
+        if (i == buffer->buffer_head && i == buffer->buffer_tail && buffer->buffer_count != 0) 
+        {
+            // Front == Rear but buffer not empty => Full buffer wrap-around
+            printf("[FR🟩]");
+        } 
+        else if (i == buffer->buffer_head && buffer->buffer_count != 0) 
+        {
+            printf("[F🟩]");
+        } 
+        else if (i == buffer->buffer_tail && buffer->buffer_count != 0) 
+        {
+            printf("[R🟩]");
+        } 
+        else if (isFilled) 
+        {
+            printf("[🟩]");
+        } 
+        else 
+        {
+            printf("[⬜]");
+        }
     }
+    printf("\n\n");
 }

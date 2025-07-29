@@ -16,8 +16,24 @@
 
 audio_buffer_t audio_buffer;  // Global audio buffer instance
 
-// ================================================
+// ====================================================================================
 // Audio command handlers
+
+// Implementation for handling help command
+static void handle_help_command(const char *command)
+{
+    printf("\nAvailable Commands:\n");
+    printf(" - play       : Start playing audio\n");
+    printf(" - pause      : Pause audio playback and clear buffer\n");
+    printf(" - volumeUp   : Increase volume by 10 units (max 100)\n");
+    printf(" - volumeDown : Decrease volume by 10 units (min 0)\n");
+    printf(" - mute       : Mute the audio\n");
+    printf(" - unmute     : Unmute the audio\n");
+    printf(" - reset      : Reset system state and buffer\n");
+    printf(" - help       : Show the list of commands supported\n\n");
+
+    LOG_INFO("Displayed help information.");
+}
 
 // Implementation for handling play command
 static void handle_play_command(const char *command)
@@ -41,7 +57,8 @@ static void handle_play_command(const char *command)
         // Simulate dequeuing 2 chunks (playback)
         for (int i = 0; i < 2; i++) {
             char out_chunk[AUDIO_BUFFER_SIZE];
-            if (dequeue_audio_command(&audio_buffer, out_chunk)) {
+            if (dequeue_audio_command(&audio_buffer, out_chunk)) 
+            {
                 printf("[AUDIO] Playing chunk: %s\n", out_chunk);
             }
         }
@@ -54,7 +71,7 @@ static void handle_play_command(const char *command)
 }
 
 // Implementation for handling stop command
-static void handle_stop_command(const char *command) 
+static void handle_pause_command(const char *command) 
 {
     audioState *state = get_audio_state();
     state->flags.is_playing = 0;                        // Clear playing flag
@@ -62,7 +79,7 @@ static void handle_stop_command(const char *command)
     // Reset the audio buffer
     reset_audio_buffer(&audio_buffer);
 
-    LOG_INFO("Handling stop command: %s", command);
+    LOG_INFO("Handling pause command: %s", command);
     print_audio_state();
 }
 
@@ -130,7 +147,7 @@ static void handle_invalid_command(const char *command)
     LOG_ERROR("Invalid command received: %s", command);
 }
 
-// ================================================
+// ====================================================================================
 
 
 /**
@@ -142,8 +159,9 @@ static void handle_invalid_command(const char *command)
 void register_audio_commands(void) 
 {
     // Registering commands with their respective handlers
+    register_command("help", handle_help_command);
     register_command("play", handle_play_command);
-    register_command("stop", handle_stop_command);
+    register_command("pause", handle_pause_command);
     register_command("volumeUp", handle_volume_up_command);
     register_command("volumeDown", handle_volume_down_command);
     register_command("reset", handle_reset_command);
