@@ -21,7 +21,6 @@ This project simulates a simple **Embedded Audio Command Processor** written in 
 - 🎛️ **State Management** — Tracks volume, mute status, and playback status using bitfields.
 - 📈 **Interactive Buffer View** — Visually shows buffer front/rear and fill state using icons.
 - 🛠️ **Modular Design** — Cleanly separated source files for commands, buffer, state, and logging.
-- 🧪 **Unit Test Ready** — Coming soon!
 - 🆘 **Help Command** — Lists all available commands at runtime.
 
 ---
