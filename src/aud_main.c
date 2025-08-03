@@ -1,5 +1,5 @@
 /** 
-* @file main.c
+* @file aud_main.c
 * @brief Main functionality for the audio command processor.
 *
 * This file provides the main entry point for the audio command processor,

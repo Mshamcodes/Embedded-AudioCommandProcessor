@@ -83,6 +83,15 @@ static void handle_pause_command(const char *command)
     print_audio_state();
 }
 
+// Implementation for handling volume get command
+static void handle_volume_get_command(const char *command)
+{
+    audioState *state = get_audio_state();
+    printf("Current volume: %d\n", state->volume);
+    LOG_INFO("Handling volume get command: %s", command);
+    print_audio_state();
+}
+
 // Implementation for handling volume up command
 static void handle_volume_up_command(const char *command)
 {
@@ -147,6 +156,7 @@ static void handle_invalid_command(const char *command)
     LOG_ERROR("Invalid command received: %s", command);
 }
 
+
 // ====================================================================================
 
 
@@ -162,6 +172,7 @@ void register_audio_commands(void)
     register_command("help", handle_help_command);
     register_command("play", handle_play_command);
     register_command("pause", handle_pause_command);
+    register_command("volumeGet", handle_volume_get_command);
     register_command("volumeUp", handle_volume_up_command);
     register_command("volumeDown", handle_volume_down_command);
     register_command("reset", handle_reset_command);
