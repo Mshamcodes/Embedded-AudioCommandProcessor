@@ -1,4 +1,4 @@
-# 🔊 Embedded Audio Command Processor Simulator (C)
+# 🔊 Embedded Audio Command Processor Simulator
 
 This project simulates a simple **Embedded Audio Command Processor** written in C, mimicking the kind of software found in embedded audio systems. It processes user commands like `play`, `pause`, `mute`, `unmute`, `volumeUp`, `volumeDown`, `reset`, and `help`, while managing internal audio state, buffer simulation, and visual feedback.
 
