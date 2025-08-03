@@ -1,4 +1,4 @@
-# 🔊 Embedded Audio Command Processor Simulator (C)
+# 🔊 Embedded Audio Command Processor Simulator
 
 This project simulates a simple **Embedded Audio Command Processor** written in C, mimicking the kind of software found in embedded audio systems. It processes user commands like `play`, `pause`, `mute`, `unmute`, `volumeUp`, `volumeDown`, `reset`, and `help`, while managing internal audio state, buffer simulation, and visual feedback.
 
@@ -21,7 +21,6 @@ This project simulates a simple **Embedded Audio Command Processor** written in 
 - 🎛️ **State Management** — Tracks volume, mute status, and playback status using bitfields.
 - 📈 **Interactive Buffer View** — Visually shows buffer front/rear and fill state using icons.
 - 🛠️ **Modular Design** — Cleanly separated source files for commands, buffer, state, and logging.
-- 🧪 **Unit Test Ready** — Coming soon!
 - 🆘 **Help Command** — Lists all available commands at runtime.
 
 ---
@@ -143,5 +142,9 @@ Enter command: reset
 [INFO] System reset: volume = 50 | playing = 0 | muted = 0
 [INFO] Handling reset command: 
 [INFO] System Status: Volume: 50 | Playing: No | Muted: No
+
+Enter command: exit
+[INFO] Exiting interactive mode.
+[INFO] Command processor freed
 
 ```
