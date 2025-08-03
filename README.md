@@ -143,4 +143,8 @@ Enter command: reset
 [INFO] Handling reset command: 
 [INFO] System Status: Volume: 50 | Playing: No | Muted: No
 
+Enter command: exit
+[INFO] Exiting interactive mode.
+[INFO] Command processor freed
+
 ```
