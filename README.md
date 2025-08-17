@@ -76,7 +76,19 @@ main()
 
 ```
 
-## 🖥️ How It Works
+## ▶️ How to Run
+
+```text
+
+In the project directory run the command 
+
+1st complile the project using 
+> make -f MakeFile                               
+
+2nd the run the project using the created output executable
+> ./audio_command_processor
+
+```
 
 ### Example Session
 
